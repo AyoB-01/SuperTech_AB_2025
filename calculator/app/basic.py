@@ -26,10 +26,17 @@ def div(x, z):
     """ Return QUOTIENT of x divided by z to 3 decimal places """
     return round(x/z, 3)
 
-print("----------- Basic Calc Examples ------------")
-print(f"4 + 3 + 2 + 1 = {add(4, 3, 2, 1)}")
-print(f"4 * 3 * 2 = {mul(4, 3, 2)}")
-print(f"4 / 3 = {div(4, 3)}")
-print("--------------------------------------------")
+def main():
+    print("----------- Basic Calc Examples ------------")
+    print(f"4 + 3 + 2 + 1 = {add(4, 3, 2, 1)}")
+    print(f"4 * 3 * 2 = {mul(4, 3, 2)}")
+    print(f"4 / 3 = {div(4, 3)}")
+    print("--------------------------------------------")
+    return None
 
-sys.exit(0)
+#namespace trick
+if __name__ == "__main__":
+    #execute only if ran directly as a program
+    #Ignore if imported as a module
+    main()
+    sys.exit(0)
