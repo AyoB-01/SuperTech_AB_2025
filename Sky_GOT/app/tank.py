@@ -9,22 +9,12 @@
 class Tank:
     # Class has 2 components = Attributes/Data + Behaviour/Methods
     def __init__(self, country, model):
-        self.country = country
-        self.model = model
         self._speed = 0
         self._health = 100
         self._location = {'x':0, 'y':0, 'z':0}
         self._direction = 0
         self._shells = 20
         #No EXPLICIT RETURN as called implicitly.
-
-    def accel(self, increase):
-        self._speed += increase
-        return None
-
-    def decel(self, decrease):
-        self._speed -= decrease
-        return None
 
     def rotate_left(self, degrees):
         self._direction -= degrees
@@ -56,4 +46,17 @@ class Tank:
     def set_health(self, new_health):
         self._health = new_health
         return None
+
+    # Wrap the getter and setter methods with  ONE VARIABLE name interface
+    # tank_health = property(get_health, set_health)
+
+    # Alternatively we could decorate methods with at property
+    # function into a property object that has a getter and setter
+    @property
+    def tank_health(self):
+        return self._health
+
+    @tank_health.setter
+    def tank_health(self, new_health):
+        self._health = new_health
 
