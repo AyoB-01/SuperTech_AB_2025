@@ -19,11 +19,11 @@ class Tank:
         #No EXPLICIT RETURN as called implicitly.
 
     def accel(self, increase):
-        self.speed += increase
+        self._speed += increase
         return None
 
     def decel(self, decrease):
-        self.speed -= decrease
+        self._speed -= decrease
         return None
 
     def rotate_left(self, degrees):
@@ -41,6 +41,19 @@ class Tank:
         self._health -= damage
         return None
 
+    # Some SPECIAL methods..
+    # Example of OPERATOR OVERLOADING
+    def __add__(self, other):
+        return self._health + other._health
 
-def main():
-    return None
+    def __str__(self):
+        return f"Model = {self.model}, Country = {self.country}, Speed = {self._speed}"
+
+    # Example of GETTER and SETTER methods..
+    def get_health(self):
+        return self._health
+
+    def set_health(self, new_health):
+        self._health = new_health
+        return None
+
